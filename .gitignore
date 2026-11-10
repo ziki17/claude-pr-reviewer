@@ -1,0 +1,13 @@
+.DS_Store
+*.bak-*
+
+# Secrets and local runtime data
+.env
+config/env
+docker-data/
+
+# Real config and harvested review data never belong in the repo
+config/config.sh
+config/eval/labels.tsv
+config/eval/dismissals.md
+config/eval/harvest-summary.txt

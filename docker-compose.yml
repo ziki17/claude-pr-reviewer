@@ -1,0 +1,14 @@
+services:
+  reviewer:
+    build:
+      context: .
+      args:
+        UID: ${HOST_UID:-1000}
+        GID: ${HOST_GID:-1000}
+    init: true
+    env_file: .env
+    volumes:
+      # Create both directories before the first start so they are owned by you.
+      - ./docker-data/config:/home/reviewer/.config/auto-pr-review
+      - ./docker-data/state:/home/reviewer/.local/state/auto-pr-review
+    restart: unless-stopped

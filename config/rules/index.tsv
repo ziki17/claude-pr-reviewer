@@ -1,0 +1,11 @@
+# Path-specific review checklists (after alibaba/open-code-review rule docs).
+# Columns: repo_regex <TAB> path_regex <TAB> doc file in this directory.
+# ERE, matched against "owner/repo" and the repo-relative path. Every matching
+# row applies (not first-match). Files matching TEST_PATHS_REGEX get no rules.
+# A doc is included in the review prompt only when a file in the diff matches.
+.	^\.github/workflows/.*\.ya?ml$	github_workflows.md
+^your-org/your-repo$	^supabase/migrations/.*\.sql$	supabase_migration.md
+^your-org/your-repo$	^messages/[a-z]{2}\.json$	i18n_messages.md
+^your-org/your-repo$	^actions/.*\.ts$	server_actions.md
+^your-org/your-repo$	^app/.*/route\.ts$	route_handlers.md
+^your-org/your-repo$	^(actions|app|lib|components|utils)/.*\.tsx?$	supabase_client.md

@@ -1,0 +1,22 @@
+# Eval labels for the auto PR reviewer. Tab-separated. Lines starting with '#'
+# and blank lines are ignored. install.sh copies this to
+# ~/.config/auto-pr-review/eval/labels.tsv if that file does not exist yet.
+#
+# Columns:  repo <TAB> pr <TAB> sha <TAB> kind <TAB> path <TAB> line <TAB> note
+#
+#   repo   full name, e.g. your-org/your-repo
+#   pr     PR number
+#   sha    the head SHA to replay (the diff is taken as base...sha so the
+#          replay is reproducible)
+#   kind   'bug' = a real defect the reviewer SHOULD flag (expected finding)
+#          'fp'  = NOT a defect; the reviewer should NOT flag this location
+#   path   file path as it appears in findings (repo-relative)
+#   line   line number of the issue
+#   note   free text, for humans only
+#
+# Manual rows go above the marker line that harvest-labels.sh writes; everything
+# below that marker is regenerated on each harvest.
+#
+# Made-up examples (uncomment and replace with real ones):
+# your-org/your-repo	42	0123456789abcdef0123456789abcdef01234567	bug	app/api/invoices/route.ts	57	missing ownership check before service-role read
+# your-org/your-repo	42	0123456789abcdef0123456789abcdef01234567	fp	lib/format.ts	12	rounding is intentional, matches the accounting export

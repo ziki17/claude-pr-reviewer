@@ -1,0 +1,7 @@
+.git
+.env
+docker-data
+config/env
+config/config.sh
+config/eval/*
+!config/eval/labels.example.tsv
